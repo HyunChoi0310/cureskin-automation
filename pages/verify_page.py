@@ -35,4 +35,6 @@ class VerifyPage(Page):
             #print("price_value:", price_value)  # print the extracted price value
             if price_value >= first_price and price_value <= second_price:
                 item_price_list.append(price_value)
+            else:
+                print("The price in out of the filter range", price_text)
         #print(item_price_list)
