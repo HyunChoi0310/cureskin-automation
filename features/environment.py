@@ -3,8 +3,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.chrome.service import Service
 from app.application import Application
-#from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
+#from selenium.webdriver.firefox.options import Options
 
 def browser_init(context):
     # try:
@@ -15,10 +15,10 @@ def browser_init(context):
         # except:
 
 #firefox
-    options = Options()
-    options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
-    context.driver = webdriver.Firefox(executable_path='.\geckodriver.exe', options=options)
-    options = webdriver.ChromeOptions()
+    # options = Options()
+    # options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
+    # context.driver = webdriver.Firefox(executable_path='.\geckodriver.exe', options=options)
+    # options = webdriver.ChromeOptions()
     # #####################
     # options = Options()
     # context.driver = webdriver.Chrome(service=service, options=options)
@@ -28,6 +28,12 @@ def browser_init(context):
     # service = Service("./chromedriver.exe")
     # context.driver = webdriver.Chrome(options=options, service=service)
 
+#headless
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1920,1080")
+    context.driver = webdriver.Chrome(options=chrome_options)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)

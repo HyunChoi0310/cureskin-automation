@@ -19,9 +19,9 @@ class VerifyPage(Page):
     def verify_all_products_are_in_the_fiter_range(self):
         filtered_price = self.find_element(*self.FILTER_PRICE).text
         print("filtered:", filtered_price)
-        first_price = float(filtered_price.replace('Price: Rs. ', '').replace(' — Rs. 612', '').replace(',', '').split(' ')[0])
+        first_price = float(filtered_price.replace('Price: Rs. ', '').replace(' — Rs. 545', '').replace(',', '').split(' ')[0])
         print("first:", first_price)
-        second_price = float(filtered_price.replace('Price: Rs. 178 — Rs. ', '').replace(',', '').replace('— Rs. ', ''))
+        second_price = float(filtered_price.replace('Price: Rs. 179 — Rs. ', '').replace(',', '').replace('— Rs. ', ''))
         print("second:", second_price)
 
         elements = self.find_elements(*self.ITEMS_LIST)
