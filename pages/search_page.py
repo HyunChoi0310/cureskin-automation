@@ -11,6 +11,8 @@ class SearchPage(Page):
     #CLICK_HAMBURGER = (By.CSS_SELECTOR, '.icon.icon-hamburger')
     CLICK_FACE_WASHES = (By.XPATH, '//a[@class="header__menu-item list-menu__item focus-inset"]/span[contains(text(), "Face Washes")]')
     PRICE_RANGE_LOWER = (By.CSS_SELECTOR, '.price-range__thumbs.is-lower')
+    PRICE_RANGE_UPPER = (By.CSS_SELECTOR, '.price-range__thumbs.is-upper')
+    PRICE_RANGE_BAR = (By.CSS_SELECTOR, '.price-range')
 
     # def click_hamburger(self):
     #     self.click(*self.CLICK_HAMBURGER)
@@ -20,7 +22,7 @@ class SearchPage(Page):
     # def drag_and_drop_by_lower(self, lower):
     #     action = ActionChains(self.driver)
     #     print(f"Lower value: {lower}")
-    #     element = self.driver.find_element(By.CSS_SELECTOR, '.price-range__thumbs.is-lower')
+    #     element = self.driver.find_element(#self.PRICE_RANGE_LOWER)
     #     source_element = element.get_attribute("aria-valuenow")
     #     print(f"Source element value: {source_element}")
     #     target_locator = (
@@ -35,13 +37,21 @@ class SearchPage(Page):
 
 
     def drag_and_drop_by_lower(self):
-        element = self.driver.find_element(By.CSS_SELECTOR, '.price-range__thumbs.is-lower')
+        # set window size to 1280x800
+        self.driver.set_window_size(1280, 800)
+        element = self.driver.find_element(*self.PRICE_RANGE_LOWER)
+        target=self.driver.find_element(*self.PRICE_RANGE_BAR)
         action = ActionChains(self.driver)
+        self.driver.execute_script("arguments[0].scrollIntoView();", target)
         action.drag_and_drop_by_offset(element, 50, 0)
         action.perform()
 
     def drag_and_drop_by_upper(self):
-        element = self.driver.find_element(By.CSS_SELECTOR, '.price-range__thumbs.is-upper')
+        # set window size to 1280x800
+        self.driver.set_window_size(1280, 800)
+        element = self.driver.find_element(*self.PRICE_RANGE_UPPER)
+        target = self.driver.find_element(*self.PRICE_RANGE_BAR)
         action = ActionChains(self.driver)
+        self.driver.execute_script("arguments[0].scrollIntoView();", target)
         action.drag_and_drop_by_offset(element, -50, 0)
         action.perform()

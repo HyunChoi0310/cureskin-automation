@@ -18,11 +18,11 @@ class VerifyPage(Page):
 
     def verify_all_products_are_in_the_fiter_range(self):
         filtered_price = self.find_element(*self.FILTER_PRICE).text
-        #print("filtered:", filtered_price)
-        first_price = float(filtered_price.replace('Price: Rs. ', '').replace(' — Rs. 546', '').replace(',', '').split(' ')[0])
-        #print("first:", first_price)
-        second_price = float(filtered_price.replace('Price: Rs. 180 — Rs. ', '').replace(',', '').replace('— Rs. ', ''))
-        #print("second:", second_price)
+        print("filtered:", filtered_price)
+        first_price = float(filtered_price.replace('Price: Rs. ', '').replace(' — Rs. 612', '').replace(',', '').split(' ')[0])
+        print("first:", first_price)
+        second_price = float(filtered_price.replace('Price: Rs. 178 — Rs. ', '').replace(',', '').replace('— Rs. ', ''))
+        print("second:", second_price)
 
         elements = self.find_elements(*self.ITEMS_LIST)
 
@@ -37,4 +37,4 @@ class VerifyPage(Page):
                 item_price_list.append(price_value)
             else:
                 print("The price in out of the filter range", price_text)
-        #print(item_price_list)
+        print(item_price_list)
