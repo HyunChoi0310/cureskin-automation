@@ -20,13 +20,6 @@ def browser_init(context):
     # context.driver = webdriver.Firefox(executable_path='.\geckodriver.exe', options=options)
     # options = webdriver.ChromeOptions()
     # #####################
-    # options = Options()
-    # context.driver = webdriver.Chrome(service=service, options=options)
-    # If Chrome driver is not available, then --headless
-    # options = webdriver.ChromeOptions()
-    # options.add_argument('--headless')
-    # service = Service("./chromedriver.exe")
-    # context.driver = webdriver.Chrome(options=options, service=service)
 
 #headless
     chrome_options = Options()
