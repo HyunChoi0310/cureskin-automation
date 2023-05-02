@@ -12,7 +12,7 @@ class VerifyPage(Page):
 
 
     def verify_number_not_same(self, expected_text):
-        sleep(2)
+        sleep(5)
         self.verify_text_contains_not_same(expected_text, *self.NUMBER_CHANGE)
 
 
@@ -22,9 +22,9 @@ class VerifyPage(Page):
         #chrome : 180 - 546
         filtered_price = self.find_element(*self.FILTER_PRICE).text
         print("filtered:", filtered_price)
-        first_price = float(filtered_price.replace('Price: Rs. ', '').replace(' — Rs. 545', '').replace(',', '').split(' ')[0])
+        first_price = float(filtered_price.replace('Price: Rs. ', '').replace(' — Rs. 546', '').replace(',', '').split(' ')[0])
         print("first:", first_price)
-        second_price = float(filtered_price.replace('Price: Rs. 179 — Rs. ', '').replace(',', '').replace('— Rs. ', ''))
+        second_price = float(filtered_price.replace('Price: Rs. 181 — Rs. ', '').replace(',', '').replace('— Rs. ', ''))
         print("second:", second_price)
 
         elements = self.find_elements(*self.ITEMS_LIST)

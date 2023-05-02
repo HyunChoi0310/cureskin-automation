@@ -37,8 +37,8 @@ class SearchPage(Page):
 
 
     def drag_and_drop_by_lower(self):
-        # set window size to 1280x800
-        self.driver.set_window_size(1280, 800)
+        # set window size to 1920, 1080
+        self.driver.set_window_size(1920, 1080)
         element = self.driver.find_element(*self.PRICE_RANGE_LOWER)
         target=self.driver.find_element(*self.PRICE_RANGE_BAR)
         action = ActionChains(self.driver)
@@ -47,8 +47,8 @@ class SearchPage(Page):
         action.perform()
 
     def drag_and_drop_by_upper(self):
-        # set window size to 1280x800
-        self.driver.set_window_size(1280, 800)
+        # set window size to 1920, 1080
+        self.driver.set_window_size(1920, 1080)
         element = self.driver.find_element(*self.PRICE_RANGE_UPPER)
         target = self.driver.find_element(*self.PRICE_RANGE_BAR)
         action = ActionChains(self.driver)
