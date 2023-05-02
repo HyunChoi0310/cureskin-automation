@@ -52,6 +52,7 @@ class SearchPage(Page):
         element = self.driver.find_element(*self.PRICE_RANGE_UPPER)
         target = self.driver.find_element(*self.PRICE_RANGE_BAR)
         action = ActionChains(self.driver)
-        self.driver.execute_script("arguments[0].scrollIntoView();", target)
+        ###Don't need:firefox, browserstack
+        #self.driver.execute_script("arguments[0].scrollIntoView();", target)
         action.drag_and_drop_by_offset(element, -50, 0)
         action.perform()

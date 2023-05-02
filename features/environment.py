@@ -7,7 +7,11 @@ from app.application import Application
 from selenium.webdriver.firefox.options import Options
 
 
-def browser_init(context):
+def browser_init(context, scenario_name):
+    """
+     :param context: Behave context
+     :param test_name: scenario.name
+     """
 #chrome
     # try:
     # context.driver = webdriver.Chrome()
@@ -30,13 +34,29 @@ def browser_init(context):
 #     chrome_options.add_argument("--window-size=1920,1080")
 #     context.driver = webdriver.Chrome(options=chrome_options)
 
-# headless--firefox
-    options = Options()
-    options.headless = True
-    options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
-    options.add_argument("--disable-gpu")
-    options.add_argument("--window-size=1920,1080")
-    context.driver = webdriver.Firefox(options=options)
+# # headless--firefox
+#     options = Options()
+#     options.headless = True
+#     options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
+#     options.add_argument("--disable-gpu")
+#     options.add_argument("--window-size=1920,1080")
+#     context.driver = webdriver.Firefox(options=options)
+
+# # for browerstack ###
+    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
+    bs_user = 'hyunredcloud_TPBt2u'
+    bs_key = '7jxNseRwHAsznZxPXda4'
+
+    desired_cap = {
+        'browserName': 'Firefox',
+        'bstack:options': {
+            'os': 'Windows',
+            'osVersion': '10',
+            'sessionName': scenario_name
+        }
+    }
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
@@ -46,7 +66,7 @@ def browser_init(context):
 def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
 
-    browser_init(context)
+    browser_init(context, scenario.name)
 
 def before_step(context, step):
     print('\nStarted step: ', step)

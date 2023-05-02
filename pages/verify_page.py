@@ -18,8 +18,9 @@ class VerifyPage(Page):
 
     def verify_all_products_are_in_the_fiter_range(self):
         #headless :179 - 545
-        #firefox : 178 - 547
+        #firefox : 178 - 637
         #chrome : 180 - 546
+        #browserstck : 181 - 546
         filtered_price = self.find_element(*self.FILTER_PRICE).text
         print("filtered:", filtered_price)
         first_price = float(filtered_price.replace('Price: Rs. ', '').replace(' — Rs. 546', '').replace(',', '').split(' ')[0])
