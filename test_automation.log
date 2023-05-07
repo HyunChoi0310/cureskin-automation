@@ -1,0 +1,17 @@
+2023-05-07 12:35:00,470 - support.logger - INFO - Started scenario: The user can search face wash products
+2023-05-07 12:35:03,233 - support.logger - INFO - Started step: <given "Open CureSkin Product main page">
+2023-05-07 12:35:08,885 - support.logger - INFO - Opening url https://shop.cureskin.com/
+2023-05-07 12:35:08,886 - support.logger - INFO - Started step: <when "close the popup window">
+2023-05-07 12:35:14,132 - support.logger - INFO - Started step: <when "Click hamburger menu">
+2023-05-07 12:35:14,484 - support.logger - INFO - Clicking element: <selenium.webdriver.remote.webelement.WebElement (session="c055d45248b77164dc844c561bf79a7c", element="D96613C25FD22BE13AC9BB67BC007483_element_39")>
+2023-05-07 12:35:14,485 - support.logger - INFO - Started step: <when "Click shop by product">
+2023-05-07 12:35:15,370 - support.logger - INFO - Started step: <when "Click face washes">
+2023-05-07 12:35:17,825 - support.logger - INFO - Clicking element: <selenium.webdriver.remote.webelement.WebElement (session="c055d45248b77164dc844c561bf79a7c", element="D96613C25FD22BE13AC9BB67BC007483_element_42")>
+2023-05-07 12:35:17,826 - support.logger - INFO - Started step: <then "The search results page URL contains face-wash">
+2023-05-07 12:35:23,071 - support.logger - INFO - Started scenario: Shop All section is functional
+2023-05-07 12:35:25,718 - support.logger - INFO - Started step: <given "Open CureSkin Product main page">
+2023-05-07 12:35:30,845 - support.logger - INFO - Opening url https://shop.cureskin.com/
+2023-05-07 12:35:30,846 - support.logger - INFO - Started step: <when "close the popup window">
+2023-05-07 12:35:36,170 - support.logger - INFO - Started step: <when "Click hamburger menu">
+2023-05-07 12:35:36,521 - support.logger - INFO - Clicking element: <selenium.webdriver.remote.webelement.WebElement (session="4e495db117d12788eca7d4fad1929301", element="EEF676DC576E93B165CAF8C0A409496A_element_41")>
+2023-05-07 12:35:36,522 - support.logger - INFO - Started step: <when "Click on Shop All section">

@@ -4,20 +4,23 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from time import sleep
 
 class SearchPage(Page):
 
     #CLICK_HAMBURGER = (By.CSS_SELECTOR, 'summary.header__menu-item.header__active-menu-item.header__menu-item--top.list-menu__item.focus-inset')
-    #CLICK_HAMBURGER = (By.CSS_SELECTOR, '.icon.icon-hamburger')
-    CLICK_FACE_WASHES = (By.XPATH, '//a[@class="header__menu-item list-menu__item focus-inset"]/span[contains(text(), "Face Washes")]')
+    CLICK_HAMBURGER = (By.CSS_SELECTOR, '.icon.icon-hamburger')
+    CLICK_FACE_WASHES = (By.XPATH, '//*[@id="link-Shop by Product"]/div/ul/li[1]/a')
+    #CLICK_FACE_WASHES = (By.XPATH, '//a[@class="header__menu-item list-menu__item focus-inset"]/span[contains(text(), "Face Washes")]')
     PRICE_RANGE_LOWER = (By.CSS_SELECTOR, '.price-range__thumbs.is-lower')
     PRICE_RANGE_UPPER = (By.CSS_SELECTOR, '.price-range__thumbs.is-upper')
     PRICE_RANGE_BAR = (By.CSS_SELECTOR, '.price-range')
 
-    # def click_hamburger(self):
-    #     self.click(*self.CLICK_HAMBURGER)
+    def click_hamburger(self):
+        self.wait_for_element_click(*self.CLICK_HAMBURGER)
+
     def click_face_washes(self):
-        self.click(*self.CLICK_FACE_WASHES)
+        self.wait_for_element_click(*self.CLICK_FACE_WASHES)
 
     # def drag_and_drop_by_lower(self, lower):
     #     action = ActionChains(self.driver)

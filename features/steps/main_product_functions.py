@@ -4,6 +4,9 @@ from selenium.webdriver.common.by import By
 
 from pages.main_page import MainPage
 from pages.search_page import SearchPage
+from pages.base_page import Page
+from pages.header import Header
+from pages.verify_page import VerifyPage
 
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -19,9 +22,9 @@ def close_popup(context):
     context.driver.find_element(By.CSS_SELECTOR, '.popup-close').click()
 
 
-# @when('Click hamburger menu')
-# def click_hamburger_menu(context):
-#     context.app.search_page.click_hamburger()
+@when('Click hamburger menu')
+def click_hamburger_menu(context):
+    context.app.search_page.click_hamburger()
 
 
 @when('Click shop by product')
